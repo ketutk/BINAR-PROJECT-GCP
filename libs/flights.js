@@ -2,6 +2,17 @@ exports.filterFlight = async (req) => {
   // Destructure query parameters from the request
   const { from: from_code, to: to_code, d: departureAt, rt: is_return, rd: return_departureAt, p: passengers = 1, sc: seat_class } = req.query;
 
+  // Check if departureAt already missed
+  if (new Date(departureAt) < Date.now()) {
+    // Throw an error
+    throw {
+      statusCode: 400,
+      status: false,
+      message: "Flights already missed",
+      data: null,
+    };
+  }
+
   // Check for required fields: from_code and seat_class
   if (!from_code || !seat_class) {
     // Throw an error if required fields are missing
