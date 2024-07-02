@@ -11,6 +11,16 @@ exports.createBookings = async (req, res, next) => {
   try {
     const { flight_class_id, total_price, include_return, passengers } = req.body;
 
+    // Check if any passenger data is empty
+    for (const passenger of passengers) {
+      if (!passenger.name || !passenger.birthdate || !passenger.identity_id || !passenger.citizenship || !passenger.category) {
+        return res.status(400).json({
+          status: false,
+          message: "Passenger data cannot be empty",
+        });
+      }
+    }
+
     // Calculate total ticket price using a helper function
     const totalTicketPrice = await getTotalPricing(req);
 
@@ -107,6 +117,7 @@ exports.createBookings = async (req, res, next) => {
     next(error);
   }
 };
+
 
 // function get bookings
 exports.getBookings = async (req, res, next) => {
