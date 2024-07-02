@@ -108,7 +108,6 @@ exports.createBookings = async (req, res, next) => {
   }
 };
 
-
 // function get bookings
 exports.getBookings = async (req, res, next) => {
   try {
@@ -211,15 +210,6 @@ exports.getBookings = async (req, res, next) => {
     // Calculate total pages for pagination
     const totalPages = Math.ceil(total / limit);
 
-    // Return 404 response if no bookings found
-    if (!bookings.length) {
-      return res.status(404).json({
-        status: false,
-        message: status ? `Data bookings not found with status ${status.toUpperCase()}.` : "Data bookings not found.",
-        data: null,
-      });
-    }
-
     // Return successful response with booking data and pagination info
     return res.status(200).json({
       status: true,
@@ -293,4 +283,3 @@ exports.getBookingsById = async (req, res, next) => {
     next(error); // Pass any errors to the error handling middleware
   }
 };
-
