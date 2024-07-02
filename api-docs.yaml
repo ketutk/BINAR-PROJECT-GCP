@@ -898,6 +898,15 @@ paths:
         - "Notification"
       summary: GET Notification
       description: To GET All Notification for User, specified by User_id
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            default: 1
+          required: true
+          description: Page number for pagination (1,2,3,4,5,...)
+          example: 1
 
       responses:
         200:
