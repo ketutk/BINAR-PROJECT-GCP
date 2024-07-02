@@ -73,6 +73,15 @@ exports.updatePayment = async (req, res, next) => {
       });
     }
 
+    // If no available seats then return error
+    if (payment.booking.flight_class.available_seats < payment.booking.total_seat) {
+      return res.status(400).json({
+        status: false,
+        message: "No seats available for this class",
+        data: null,
+      });
+    }
+
     // Update payment status to ISSUED and adjust related booking and flight details
     const [updatePayment] = await prisma.$transaction([
       prisma.payment.update({
