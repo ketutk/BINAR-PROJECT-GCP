@@ -21,4 +21,4 @@ Password : user123
 
 - _Github:_ [https://github.com/ketutk/BINAR-PROJECT-GCP/tree/main](https://github.com/ketutk/BINAR-PROJECT-GCP/tree/main)
 
-- _Link PPT:_ [https://www.canva.com/design/DAGJX4_IQwY/TyfWdlkQsviNBjnxgdagbA/edit?utm_content=DAGJX4_IQwY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](https://www.canva.com/design/DAGJX4_IQwY/TyfWdlkQsviNBjnxgdagbA/edit?utm_content=DAGJX4_IQwY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- _Link PPT:_ [https://www.canva.com/design/DAGJX4_IQwY/TyfWdlkQsviNBjnxgdagbA/edit?utm_content=DAGJX4_IQwY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](https://www.canva.com/design/DAGJ1sbUkio/RprtpMo3U5pIOBeQuB95uA/edit?utm_content=DAGJ1sbUkio&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
