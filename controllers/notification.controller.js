@@ -5,18 +5,24 @@ const prisma = new PrismaClient();
 exports.getNotification = async (req, res, next) => {
   try {
     // Extract pagination parameters from query string
-    const { page = 1 } = req.query;
+    const { page = 1, status } = req.query;
     const limit = 5;
     const skip = (parseInt(page) - 1) * parseInt(limit);
+
+    let where = {
+      user_id: req.user_data.id,
+    };
+
+    if (status) {
+      where.is_read = status === "read" ? true : false;
+    }
 
     // Fetch notifications for the current user based on user_id
     const [notif, total] = await Promise.all([
       prisma.notification.findMany({
         take: limit,
         skip: skip,
-        where: {
-          user_id: req.user_data.id,
-        },
+        where,
         orderBy: {
           createdAt: "desc", // Order notifications by createdAt in descending order
         },
